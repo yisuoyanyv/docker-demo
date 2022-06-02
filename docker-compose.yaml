@@ -62,6 +62,18 @@ services:
       - minio3
       - minio4
 
+
+  minio-mc:
+      image: minio/mc:latest
+      container_name: minio-mc
+      environment:
+        MINIO_ACCESS_KEY: minio
+        MINIO_SECRET_KEY: minio123
+      links:
+        - minio1:S3_server
+      entrypoint: /bin/sh
+      tty: true
+      
   spark-master:
     image: jinglongzh/spark:3.2.1
     container_name: spark-master
