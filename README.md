@@ -36,7 +36,27 @@ http://localhost:8080/
 http://localhost:9001/
 账号密码：minio/minio123
 
+### 配置minio 客户端，上传文件测试
 
+使用客户端连接minio 服务端
+创建名为spark-test的bucket
+并上传测试文件
+```
+mc config host add myminio http://192.168.1.6:9000 minio minio123
+mc mb myminio/spark-test
+mc cp test.json myminio/spark-test/test.json
+
+
+```
+执行mc ls myminio 报错
+```
+sh-4.4# mc ls myminio
+mc: <ERROR> Unable to list folder. The request signature we calculated does not match the signature you provided. Check your key and signing method.
+```
 ## 参考文档：
-
+在Docker上一键部署你的Spark计算平台
 https://www.jianshu.com/p/d6a406da3cba
+
+基于Docker部署Spark和MinIO Server
+https://www.jianshu.com/p/aaa797181c2d
+
