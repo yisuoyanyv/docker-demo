@@ -53,6 +53,15 @@ mc cp test.json myminio/spark-test/test.json
 sh-4.4# mc ls myminio
 mc: <ERROR> Unable to list folder. The request signature we calculated does not match the signature you provided. Check your key and signing method.
 ```
+## Spark读写MinIO存储
+
+## 配置Spark集群
+Spark访问MinIO存储需要一些依赖包
+放置在了dependencies文件夹下
+并配置了copy_dependencies.sh文件，将依赖包copy到spark 集群的jar包
+
+
+
 ## 参考文档：
 在Docker上一键部署你的Spark计算平台
 https://www.jianshu.com/p/d6a406da3cba
